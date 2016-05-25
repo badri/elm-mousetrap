@@ -1,5 +1,6 @@
-import Graphics.Element (..)
-import Text (..)
+module Kb where
+
+
 import Mousetrap
 import Signal
 import Debug
@@ -13,8 +14,8 @@ main = Signal.map displayCommand keyboardShortcuts
 
 displayCommand command =
   case Debug.log "received command" command of
-    Open -> plainText "Open File"
-    _ -> plainText "Unbound"
+    Open -> Text.plainText "Open File"
+    _ -> Text.plainText "Unbound"
 
 processKeys keyString =
     case Debug.log "checking for" keyString of
